@@ -1,80 +1,244 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ID Generator</title>
-    <style>
-        /* Styling for Form Page */
-        #form-page {
-            background-color: black;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            margin: 0 auto;
-            text-align: center;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Generator</title>
+    <style>
 
-        #id-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        /* Styling for output-page*/
 
-        #generate-button {
-            background-color: #00ff00; /* Neon green */
-            color: black;
-            font-weight: bold;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            animation: neon-glow 1s ease infinite alternate;
-        }
+        #output-page {
 
-        @keyframes neon-glow {
-            from {
-                box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
-            }
-            to {
-                box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 60px #00ff00;
-            }
-        }
+            background-color: black;
 
-        /* Styling for Output Page */
-        #output-page {
-            display: none;
-            /* Add styling for output page if needed */
-        }
-    </style>
+            color: white;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            width: 300px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+        }
+
+       
+
+        /* Styling for Form Page */
+
+        #form-page {
+
+            background-color: black;
+
+            color: white;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            width: 300px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+        }
+
+
+        #id-form {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+        }
+
+
+        #generate-button {
+
+            background-color: #00ff00; /* Neon green */
+
+            color: black;
+
+            font-weight: bold;
+
+            border: none;
+
+            padding: 10px 20px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            animation: neon-glow 1s ease infinite alternate;
+
+        }
+
+
+        @keyframes neon-glow {
+
+            from {
+
+                box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+
+            }
+
+            to {
+
+                box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 60px #00ff00;
+
+            }
+
+        }
+
+
+        /* Styling for Output Page */
+
+        #output-page {
+
+            display: none;
+
+            /* Add styling for output page if needed */
+
+        }
+
+    </style>
+
 </head>
+
 <body>
-    <!-- Halaman 1: Formulir -->
-    <div id="form-page">
-        <h1>ID Generator</h1>
-        <form id="id-form">
-            <label for="num-ids">Jumlah ID yang ingin dibuat:</label>
-            <input type="number" id="num-ids" name="num-ids" min="1" required><br>
 
-            <label for="char-length">Panjang karakter ID:</label>
-            <input type="number" id="char-length" name="char-length" min="1" required><br>
+    <!-- Halaman 1: Formulir -->
 
-            <label for="include-special">Tambahkan huruf dan simbol khusus:</label>
-            <input type="checkbox" id="include-special" name="include-special"><br>
+    <div id="form-page">
 
-            <button type="button" id="generate-button" onclick="generateIDs()">Generate</button>
-        </form>
-    </div>
+        <h1>ID Generator</h1>
 
-    <!-- Halaman 2: Output -->
-    <div id="output-page">
-        <h1>Hasil ID Generator</h1>
-        <ul id="id-list"></ul>
-    </div>
+        <form id="id-form">
 
-    <script>
-        // ... (JavaScript logic remains the same)
-    </script>
+            <label for="num-ids">Jumlah ID yang ingin dibuat:</label>
+
+            <input type="number" id="num-ids" name="num-ids" min="1" required><br>
+
+
+            <label for="char-length">Panjang karakter ID:</label>
+
+            <input type="number" id="char-length" name="char-length" min="1" required><br>
+
+
+            <label for="include-special">Tambahkan huruf dan simbol khusus:</label>
+
+            <input type="checkbox" id="include-special" name="include-special"><br>
+
+
+            <button type="button" id="generate-button" onclick="generateIDs()">Generate</button>
+
+        </form>
+
+    </div>
+
+
+    <!-- Halaman 2: Output -->
+
+    <div id="output-page">
+
+        <h1>Hasil ID Generator</h1>
+
+        <ul id="id-list"></ul>
+
+    </div>
+
+
+    <script>
+
+        function generateIDs() {
+
+            const numIDs = parseInt(document.getElementById("num-ids").value);
+
+            const charLength = parseInt(document.getElementById("char-length").value);
+
+            const includeSpecial = document.getElementById("include-special").checked;
+
+
+            // Generate IDs
+
+            const generatedIDs = [];
+
+            for (let i = 0; i < numIDs; i++) {
+
+                generatedIDs.push(generateRandomID(charLength, includeSpecial));
+
+            }
+
+                  
+
+                  // Display IDs
+
+            const idList = document.getElementById("id-list");
+
+            idList.innerHTML = ""; // Clear previous results
+
+            generatedIDs.forEach(id => {
+
+                const listItem = document.createElement("li");
+
+                listItem.textContent = id;
+
+                idList.appendChild(listItem);
+
+            });
+
+
+            // Show output page
+
+            document.getElementById("form-page").style.display = "none";
+
+            document.getElementById("output-page").style.display = "block";
+
+        }
+
+            
+
+            function generateRandomID(length, includeSpecial) {
+
+            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            let result = "";
+
+            for (let i = 0; i < length; i++) {
+
+                const randomIndex = Math.floor(Math.random() * characters.length);
+
+                result += characters.charAt(randomIndex);
+
+            }
+
+                  
+
+                   if (includeSpecial) {
+
+                const specialCharacters = "!@#$%^&*";
+
+                const randomSpecialIndex = Math.floor(Math.random() * specialCharacters.length);
+
+                result += specialCharacters.charAt(randomSpecialIndex);
+
+            }
+
+
+            return result;
+
+        }
+
+    </script>
+
 </body>
+
 </html>
+
