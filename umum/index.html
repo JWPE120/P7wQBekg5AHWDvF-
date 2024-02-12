@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurassic World Park Entertainment</title>
+    <style>
+        /* Styling for futuristic and interactive elements */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .dinosaur {
+            width: 200px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .dinosaur:hover {
+            transform: scale(1.1);
+        }
+        .button {
+            background-color: #ff4500;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .button:hover {
+            background-color: #ff6347;
+        }
+
+/* Neon lampu berkelap-kelip */
+.neon-light {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    animation: neon-glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+    0% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+    </style>
+</head>
+<body>
+<h1 class="neon-light">Welcome to Jurassic World Park!</h1>
+    <img src="dinosaur.jpg" alt="Jurassic World Dinosaur" class="dinosaur">
+    <p>Explore our futuristic exhibits featuring genetically engineered dinosaurs.</p>
+    <button class="button">Book Your Adventure</button>
+    <script>
+        // Add interactive features here (e.g., animations, sound effects)
+        // You can use JavaScript to enhance user experience.
+    </script>
+</body>
+</html>
