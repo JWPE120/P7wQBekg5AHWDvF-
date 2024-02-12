@@ -57,11 +57,39 @@
         transform: scale(1.1);
     }
 }
+     
+@keyframes neon2 {
+            0% {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+            }
+            50% {
+                text-shadow: none;
+            }
+            100% {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+            }
+        }
 
+        /* Gaya teks */
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            animation: neon2 1s infinite alternate;
+            color: #00ff00; /* Warna neon hijau */
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 5px;
+            transform: translateX(10px); /* Efek bergerak */
+            white-space: nowrap; /* Teks tidak pindah ke baris baru */
+            overflow: hidden; /* Teks yang keluar dari area tersembunyi */
+            border-right: 3px solid #00ff00; /* Efek ketik otomatis */
+            padding-right: 10px; /* Jarak antara teks dan garis ketik otomatis */
+            background-color: black; /* Warna latar belakang hitam */
+        }
     </style>
 </head>
 <body>
-<h1 class="neon-light">Welcome to Jurassic World Park!</h1>
+<h1 class="neon-light">Jurassic World Park Entertainment</h1>
+ <h2>Selamat Datang</h2>
     <img src="dinosaur.jpg" alt="Jurassic World Dinosaur" class="dinosaur">
     <p>Explore our futuristic exhibits featuring genetically engineered dinosaurs.</p>
     <button class="button">Book Your Adventure</button>
