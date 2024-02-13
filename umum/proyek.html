@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .item-box {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .item-title {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+       .button {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            font-size: 25px;
+            font-weight: bold;
+            background: linear-gradient(to right, magenta, cyan); /* Warna neon */
+            animation: blink 1s infinite; /* Animasi berkedip */
+        }
+
+        /* Membuat keyframes untuk animasi berkedip */
+        @keyframes blink {
+            50% {
+                opacity: 0; /* Membuat tombol tidak terlihat */
+            }
+    </style>
+</head>
+<body>
+    <div class="item-box">
+        <img src="your-image-url.jpg" alt="Item Image" class="item-image">
+        <h2 class="item-title">ID Generator</h2>
+        <p>Buat ID/Indentitas anda menggunakan alat ID Generator Kami.</p>
+        <button class="button">Learn More</button>
+    </div>
+
+    <!-- Add more item boxes with different content here -->
+
+</body>
+</html>
