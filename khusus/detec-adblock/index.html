@@ -47,11 +47,12 @@
         { method: "HEAD", mode: "no-cors", cache: "no-store" }
     )
         .then((res) => {
-            // Jika berhasil dimuat, biarkan peringatan tetap muncul jika adblocker masih aktif
-        })
-        .catch((err) => {
             // Jika terjadi kesalahan, berarti adblocker aktif
             alert("ADBLOCK TERDETEKSI");
+        })
+        .catch((err) => {
+            // Jika berhasil dimuat, biarkan peringatan tetap muncul jika adblocker masih aktif
+            closeAdblockWarning();
         });
 
     // Metode 2: Menyisipkan iklan palsu
@@ -65,6 +66,7 @@
         test.remove();
     }, 2000);
 </script>
+
 
 </body>
 </html>
