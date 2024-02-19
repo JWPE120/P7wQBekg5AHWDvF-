@@ -35,38 +35,37 @@
         <span class="close-button" onclick="closeAdblockWarning()">X</span>
     </div>
 
- <script>
-    function closeAdblockWarning() {
-        const warning = document.querySelector('.adblock-warning');
-        warning.style.display = 'none';
-    }
-
-    // Metode 1: Memuat pustaka iklan
-    fetch(
-        "https://crockerydestructivespoken.com/c22212817dee568e92779f7b1180acd3/invoke.js", // Link iklan yang diberikan
-        { method: "HEAD", mode: "no-cors", cache: "no-store" }
-    )
-        .then((res) => {
-            // Jika terjadi kesalahan, berarti adblocker aktif
-            alert("ADBLOCK TERDETEKSI");
-        })
-        .catch((err) => {
-            // Jika berhasil dimuat, biarkan peringatan tetap muncul jika adblocker masih aktif
-            closeAdblockWarning();
-        });
-
-    // Metode 2: Menyisipkan iklan palsu
-    setTimeout(() => {
-        let test = document.getElementById("adTest");
-        if (window.getComputedStyle(test).getPropertyValue("display") === "none") {
-            alert("ADBLOCK TERDETEKSI");
-        } else {
-            closeAdblockWarning();
+    <!-- Script untuk menutup peringatan -->
+    <script>
+        function closeAdblockWarning() {
+            const warning = document.querySelector('.adblock-warning');
+            warning.style.display = 'none';
         }
-        test.remove();
-    }, 2000);
-</script>
 
+        // Metode 1: Memuat pustaka iklan
+        fetch(
+            "https://www.contoh-url-anda.com/adsbygoogle.js", // Ganti dengan URL iklan Anda
+            { method: "HEAD", mode: "no-cors", cache: "no-store" }
+        )
+            .then((res) => {
+                // Jika berhasil dimuat, berarti adblocker tidak aktif
+                closeAdblockWarning();
+            })
+            .catch((err) => {
+                // Jika terjadi kesalahan, berarti adblocker aktif
+                alert("ADBLOCK TERDETEKSI");
+            });
 
+        // Metode 2: Menyisipkan iklan palsu
+        setTimeout(() => {
+            let test = document.getElementById("adTest");
+            if (window.getComputedStyle(test).getPropertyValue("display") === "none") {
+                alert("ADBLOCK TERDETEKSI");
+            } else {
+                closeAdblockWarning();
+            }
+            test.remove();
+        }, 2000);
+    </script>
 </body>
 </html>
