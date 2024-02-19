@@ -1,0 +1,71 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peringatan Adblocker</title>
+    <style>
+        /* Gaya untuk peringatan */
+        .adblock-warning {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Gaya tombol tutup */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Konten situs web Anda -->
+    <h1>Selamat datang di Situs Web Kami!</h1>
+    <p>Ini adalah konten yang luar biasa.</p>
+
+    <!-- Peringatan Adblocker -->
+    <div class="adblock-warning">
+        <span>Anda menggunakan Adblocker!</span>
+        <span class="close-button" onclick="closeAdblockWarning()">X</span>
+    </div>
+
+    <!-- Script untuk menutup peringatan -->
+    <script>
+        function closeAdblockWarning() {
+            const warning = document.querySelector('.adblock-warning');
+            warning.style.display = 'none';
+        }
+
+        // Metode 1: Memuat pustaka iklan
+        fetch(
+            "https://www.contoh-url-anda.com/adsbygoogle.js", // Ganti dengan URL iklan Anda
+            { method: "HEAD", mode: "no-cors", cache: "no-store" }
+        )
+            .then((res) => {
+                // Jika berhasil dimuat, berarti adblocker tidak aktif
+                closeAdblockWarning();
+            })
+            .catch((err) => {
+                // Jika terjadi kesalahan, berarti adblocker aktif
+                alert("ADBLOCK TERDETEKSI");
+            });
+
+        // Metode 2: Menyisipkan iklan palsu
+        setTimeout(() => {
+            let test = document.getElementById("adTest");
+            if (window.getComputedStyle(test).getPropertyValue("display") === "none") {
+                alert("ADBLOCK TERDETEKSI");
+            } else {
+                closeAdblockWarning();
+            }
+            test.remove();
+        }, 2000);
+    </script>
+</body>
+</html>
