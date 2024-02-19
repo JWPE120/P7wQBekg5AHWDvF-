@@ -1,49 +1,19 @@
  <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Rendering</title>
-    <style>
-        /* CSS styling for the input form */
-        body {
-            background-color: black; /* Set background color to black */
-            color: white; /* Set text color to white */
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        #urlInput {
-            width: 80%;
-            padding: 10px;
-            font-size: 16px;
-        }
-        #renderButton {
-            background-color: #39ff14; /* Neon green color for the button */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Title of the document</title>
 </head>
 <body>
-    <h1>URL Rendering</h1>
-    <p>Enter a URL below:</p>
-    <input type="url" id="urlInput" placeholder="Enter URL...">
-    <button id="renderButton" onclick="renderPage()">Rendering</button>
+    <h1>Heading</h1>
+    <p>Paragraf.</p>
 
+    <!-- Kill AdBlock -->
+    <link href='https://codeflareblogspot.github.io/code/KillAdBlock.css' rel='stylesheet'/>
     <script>
-        // JavaScript function to handle rendering
-        function renderPage() {
-            const url = document.getElementById('urlInput').value;
-            if (url) {
-                // Redirect to the entered URL
-                window.location.href = url;
-            } else {
-                alert('Please enter a valid URL.');
-            }
-        }
+        var titleAd = 'AD Blocker Detected';
+        var notifAd = 'Please Support Ketutrare.com with disable your browser <u>AD-Block</u> to continue reading or register this blog into whitelist.<br/><b>Thank You</b>';
     </script>
+    <script src='https://codeflareblogspot.github.io/code/KillAdBlock.js'></script>
+    <!-- Kill AdBlock -->
 </body>
 </html>
