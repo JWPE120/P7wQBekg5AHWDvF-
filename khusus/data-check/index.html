@@ -1,0 +1,92 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checker Ketidakcocokan Data</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: linear-gradient(to right, magenta, cyan);
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #6f42c1;
+    }
+    #result {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+</style>
+<script>
+    function checkMismatch() {
+        var data1 = document.getElementById('data1').value;
+        var data2 = document.getElementById('data2').value;
+        
+        var arr1 = data1.split(',');
+        var arr2 = data2.split(',');
+        
+        var mismatchedData = [];
+        
+        for (var i = 0; i < arr2.length; i++) {
+            if (!arr1.includes(arr2[i])) {
+                mismatchedData.push(arr2[i]);
+            }
+        }
+        
+        if (mismatchedData.length > 0) {
+            document.getElementById('result').innerText = "Data yang tidak cocok: " + mismatchedData.join(', ');
+        } else {
+            document.getElementById('result').innerText = "Semua data cocok!";
+        }
+    }
+</script>
+</head>
+<body>
+    <div class="container">
+        <h2>Masukkan Data</h2>
+        <label for="data1">Data 1:</label>
+        <input type="text" id="data1">
+        <label for="data2">Data 2:</label>
+        <input type="text" id="data2">
+        <button onclick="checkMismatch()">Cek Ketidakcocokan</button>
+        <div id="result"></div>
+    </div>
+</body>
+</html>
