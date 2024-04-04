@@ -1,0 +1,92 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Duplikat Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(to right, magenta, cyan);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, cyan, magenta);
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Masukkan Data</h2>
+    <input type="text" id="inputData">
+    <button onclick="checkData()">Periksa</button>
+
+    <h2>Hasil Periksa Data</h2>
+    <div id="result"></div>
+
+    <script>
+        function checkData() {
+            var data = document.getElementById("inputData").value;
+
+            // Mengecek apakah data terulang
+            var duplicatedData = false;
+            var allData = localStorage.getItem("allData");
+            if (allData) {
+                allData = JSON.parse(allData);
+                if (allData.includes(data)) {
+                    duplicatedData = true;
+                } else {
+                    allData.push(data);
+                    localStorage.setItem("allData", JSON.stringify(allData));
+                }
+            } else {
+                allData = [data];
+                localStorage.setItem("allData", JSON.stringify(allData));
+            }
+
+            // Menampilkan hasil
+            if (duplicatedData) {
+                document.getElementById("result").innerHTML = "Data Terulang: " + data;
+            } else {
+                document.getElementById("result").innerHTML = "Data tidak terulang.";
+            }
+        }
+    </script>
+</body>
+</html>
